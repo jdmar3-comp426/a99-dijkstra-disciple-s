@@ -156,3 +156,9 @@ label{
 input:focus{
     outline: none;
 }
+
+.mainpage li{
+    top: 50px;
+    color: yellow;
+  }
+  

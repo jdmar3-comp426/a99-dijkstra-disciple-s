@@ -1,23 +1,30 @@
-{% extends "base.html" %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
 
-<div class="registerBox">
-    <h1 class="title">Register</h1>
-    <form class="formBox" action="" method="POST">
-        <label >Username</label>
-        <input name="username" class="loginInput" type="email" placeholder="Username"/>
-        <label>Password</label>
-        <input name="password" class="loginInput" type="password" placeholder="password"/>
-        <label> Confirm Password </label>
-        <input name="confPassword" class="loginInput" type="password" placeholder="password"/>
-        <div class="errorBox">
-            {% for message in get_flashed_messages() %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        </div>
-        <button  class="input_btn" type="submit" value="Register">Register</button>
-        <button class="input_btn" ><a href="/login">Login</a></button>
-        
-    </form>
-</div>
-
-{% endblock %}
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="./loginStyle.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="registerBox">
+        <h1 class="title">Register</h1>
+        <form class="formBox" action="" method="POST">
+            <label >Username</label>
+            <input name="username" class="loginInput" type="email" placeholder="Username"/>
+            <label>Password</label>
+            <input name="password" class="loginInput" type="password" placeholder="password"/>
+            <label> Confirm Password </label>
+            <input name="confPassword" class="loginInput" type="password" placeholder="password"/>
+            <button  class="input_btn" type="submit" value="Register">Register</button>
+            <button class="input_btn" ><a href="/login.html">Login</a></button>
+            
+        </form>
+    </div>
+   
+  </body>
+  </html>
