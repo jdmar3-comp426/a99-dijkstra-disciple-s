@@ -11,7 +11,7 @@ var mainState = {
 
     create: function() {  
 	game.stage.backgroundColor = '#71c5cf';
-	this.clouds = game.add.tileSprite(0, 0, 400, 196,'clouds');
+	this.clouds = game.add.tileSprite(0, 0, 1400, 196,'clouds');
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	//this.bird = game.add.sprite(100, 245, 'bird');
 	this.bird = game.add.sprite(50,50,'bird');
@@ -25,7 +25,7 @@ var mainState = {
     spaceKey.onDown.add(this.jump, this);
 	game.input.onTap.add(this.jump,this);
 	this.pipes = game.add.group(); 
-	this.timer = game.time.events.loop(1500, this.addRowOfPipes, this); 
+	this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
 	this.score = -1;
 	this.labelScore = game.add.text(20, 20, "0", 
     { font: "30px Arial", fill: "#ffffff" }); 
@@ -37,7 +37,7 @@ var mainState = {
 
     update: function() {
 		this.clouds.tilePosition.x-=1;
-		if (this.bird.y < 0 || this.bird.y > 490)
+		if (this.bird.y < 0 || this.bird.y > 800)
 			this.gameOverScreen();
 		game.physics.arcade.overlap(
 		this.bird, this.pipes, this.hitPipe, null, this);
@@ -80,15 +80,22 @@ addOnePipe: function(x, y) {
 
     pipe.checkWorldBounds = true;
     pipe.outOfBoundsKill = true;
+	
 },
 addRowOfPipes: function() {
-    var hole = Math.floor(Math.random() * 5) + 1;
+    var hole = Math.floor(Math.random() * 11) + 1;
 	this.score += 1;
 	this.labelScore.text = this.score; 
 
-    for (var i = 0; i < 8; i++)
+    for (var i = 0; i < 14; i++)
         if (i != hole && i != hole + 1) 
-            this.addOnePipe(400, i * 60 + 10);   
+            this.addOnePipe(1200, i * 60 + 10); 
+			
+	
+	//var hole2 = Math.floor(Math.random() * 11) + 1;
+	//for (var i = 0; i < 14; i++)
+        //if (i != hole2 && i != hole2 + 1) 
+           //this.addOnePipe(800, i * 60 + 10);
 },
 hitPipe: function() {
     if (this.bird.alive == false)
@@ -105,6 +112,6 @@ hitPipe: function() {
 
 };
 
-var game = new Phaser.Game(400, 490);
+var game = new Phaser.Game(1400, 900);
 game.state.add('main', mainState);
 game.state.start('main');
