@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="registerBox">
+    <h1 class="title">Register</h1>
+    <form class="formBox" action="" method="POST">
+        <label >Username</label>
+        <input name="username" class="loginInput" type="email" placeholder="Username"/>
+        <label>Password</label>
+        <input name="password" class="loginInput" type="password" placeholder="password"/>
+        <label> Confirm Password </label>
+        <input name="confPassword" class="loginInput" type="password" placeholder="password"/>
+        <div class="errorBox">
+            {% for message in get_flashed_messages() %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        <button  class="input_btn" type="submit" value="Register">Register</button>
+        <button class="input_btn" ><a href="/login">Login</a></button>
+        
+    </form>
+</div>
+
+{% endblock %}
