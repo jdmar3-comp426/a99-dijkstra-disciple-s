@@ -23,7 +23,7 @@ body{
     animation: flicker 1.5s infinite alternate;
     font-size: 80px;
     margin-left: 2%;
-    margin-top: 2%;
+    margin-top: 10%;
 }
 
 @keyframes flicker {
@@ -49,8 +49,8 @@ body{
 #log_tit{
     animation: flickerLog 1.5s infinite alternate;
     font-size: 80px;
-    margin-left: 2%;
-    margin-top: 4%;
+    margin-left: 1%;
+    margin-top: 10%;
 }
 
 @keyframes flickerLog {
@@ -157,8 +157,13 @@ input:focus{
     outline: none;
 }
 
-.mainpage li{
-    top: 50px;
-    color: yellow;
+.mainpage{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    text-align: center;
+ 
+
   }
   
