@@ -1,0 +1,30 @@
+{
+  "name": "a99",
+  "version": "1.0.0",
+  "description": "An API to a user database.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npx browser-sync start -sw",
+    "server": "node server.js",
+    "start": "concurrently --kill-others 'npm run client' 'npm run server'"
+  },
+  "proxy": "http://localhost:8080",
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "better-sqlite3": "^7.4.5",
+    "concurrently": "^6.4.0",
+    "express": "^4.17.1",
+    "md5": "^2.3.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmar3-comp426/a99-dijkstra-disciple-s.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jdmar3-comp426/a99-dijkstra-disciple-s/issues"
+  },
+  "homepage": "https://github.com/jdmar3-comp426/a99-dijkstra-disciple-s#readme"
+}
