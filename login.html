@@ -9,29 +9,29 @@
     <title>Flappy Bird</title>
     <link rel="stylesheet" href="./loginStyle.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="form2.js"></script>
   </head>
   <body>
     <div class="registerBox">
       <h1 class="title" id="log_tit">Login</h1>
-      
-      <form class="formBox" action="" method="POST">
+      <form class="formBox" id="loginForm" enctype="multipart/form-data" action="" method="POST">
         <label class="login_label">Username</label>
         <input
-          name="username"
+          name="email"
           type="email"
           class="loginInput"
-          id="login_inp_st"
+          id="eamil"
           placeholder="Username"
         />
         <label class="login_label">Password</label>
         <input
-          name="password"
+          name="pass"
           type="password"
           class="loginInput"
-          id="login_inp_st"
+          id="pass"
           placeholder="password"
         />
-        <button class="input_btn" value="Login" type="submit">Login</button>
+        <button class="input_btn" value="Submit" type="submit">Login</button>
       </form>
       <button class="input_btn"><a href="/register.html">Register</a></button>
       <button class="input_btn"><a href="index.html">Home</a></button>

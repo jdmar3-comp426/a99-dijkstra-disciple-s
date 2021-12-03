@@ -4,6 +4,8 @@ window.addEventListener("load", function () {
         const sendRequest = new XMLHttpRequest();
         const signupInfo = new FormData(form);
 
+        let pass = form.elements['pass']
+        let email = form.elements['email']
         // error handling
         sendRequest.addEventListener("error", function (event) {
             alert("Submission unsuccessful, please check your input and try again");
@@ -12,12 +14,13 @@ window.addEventListener("load", function () {
         // success message
         sendRequest.addEventListener("load", function (event) {
             alert("Account successfully created");
+            window.location.replace("http://localhost:3000/login.html");
         });
-
-        // open endpoint and send data
         sendRequest.open("POST", "http://localhost:5000/app/new");
         sendRequest.send(signupInfo);
-
+        
+        // open endpoint and send data
+        
     }
 
     // define location of form to get data from
@@ -42,5 +45,6 @@ function submitForm(e) {
     const signupInfo = new FormData(form);
     sendRequest.open("POST", "http://localhost:5000/app/new/user");
     sendRequest.send(signupInfo);
+    
     
 }
