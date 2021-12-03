@@ -1,9 +1,9 @@
 var mainState = {
     preload: function() { 
 	//game.load.image('bird', 'assets/bird.png'); 
-	game.load.image('clouds', 'assets/clouds.png'); 
-	game.load.spritesheet('bird','assets/partyparrot.png',307,220,10);
-	game.load.spritesheet('pipe','assets/pipe.png',50,67,2);
+	game.load.image('clouds', 'assets/layerback.png'); 
+	game.load.image('bird','assets/rameses.png',307,220,10);
+	game.load.image('pipe','assets/blockpipe.png',50,67,2);
 	//game.load.image('pipe', 'assets/pipe.png');
 	game.load.audio('jump', 'assets/jump2.wav'); 
 	game.load.audio('theme', 'assets/stars.wav'); 
@@ -17,7 +17,7 @@ var mainState = {
 	this.bird = game.add.sprite(50,50,'bird');
 	this.bird.animations.add('party');
 	this.bird.animations.play('party', 15, true);
-	this.bird.scale.setTo(.12,.12);
+	this.bird.scale.setTo(.02,.02);
 	game.physics.arcade.enable(this.bird);
 	this.bird.body.gravity.y = 1000;
 	var spaceKey = game.input.keyboard.addKey(
