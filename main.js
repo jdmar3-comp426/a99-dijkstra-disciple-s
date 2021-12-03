@@ -6,7 +6,7 @@ var mainState = {
 	game.load.image('pipe','assets/blockpipe.png',50,67,2);
 	//game.load.image('pipe', 'assets/pipe.png');
 	game.load.audio('jump', 'assets/jump2.wav'); 
-	game.load.audio('theme', 'assets/stars.wav'); 
+	//game.load.audio('theme', 'assets/stars.wav'); 
     },
 
     create: function() {  
