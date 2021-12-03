@@ -1,1 +1,32 @@
 At some point we need to create a "plan"
+
+Understanding each file:
+
+    Running the game
+        - main.js = handles the functionality of the game: pipe generation, sprites, images, etc.
+        - phaser.min.js = framework that the game runs on.
+
+    HTML Webpages
+        - index.html = main screen that allows users to choose: login, register, or play the game.
+        - register.html = screen that allows users to create an account to track stats in game.
+        - login.html = screen that allows registered users to login to the game.
+        - game.html = screen where the actual game is played.
+
+    CSS
+        - style.css = style guide for all html pages. 
+
+    Database
+        - database.js = 
+        - form.js = 
+        - form2.js = 
+        - server.js = 
+        - user.db = 
+
+    Assests
+        - blockpipe.png = old pipe image (obsolete)
+        - layerback.png = the clouds in the background
+        - partyparrot.png = old player icon (obsolete)
+        - rameses.png = player icon
+        - stars.wav = audio that played... kinda annoying (obsolete)
+        - tarheel_blockpipe_black.png = pipe image
+        - tarheel_blockpipe_gold.png = pipe image
