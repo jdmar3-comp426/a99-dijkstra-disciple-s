@@ -81,7 +81,7 @@ addOnePipe: function(x, y) {
     pipe.checkWorldBounds = true;
     pipe.outOfBoundsKill = true;
 	
-},
+}, 						// the score is kept here, need to put it in db somehow
 addRowOfPipes: function() {
     var hole = Math.floor(Math.random() * 11) + 1;
 	this.score += 1;
