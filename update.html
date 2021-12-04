@@ -25,6 +25,21 @@
         <button class="input_btn" ><a href="index.html">Home</a></button>
         <button class="input_btn" ><a href="/register.html">Register</a></button>
         <button class="input_btn" ><a href="/login.html">Login</a></button>
+        <br><br><br><br>
+        <button id = "view" type="button" onclick="viewUser()"> View Account </button>
+        <p id = "getResult"></p>
+        <script>
+          //script runnign on view my info button
+        function viewUser() {
+          const getRequest = new XMLHttpRequest();
+          getRequest.onload = function() {
+            alert('I have retrieved your information!')
+          document.getElementById("getResult").innerHTML = this.responseText;
+          }
+          getRequest.open("GET", "http://localhost:5000/app/user/1");
+          getRequest.send();
+        }
+        </script>
     </div>
   </body>
   </html>
