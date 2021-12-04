@@ -25,7 +25,7 @@ var mainState = {
     spaceKey.onDown.add(this.jump, this);
 	game.input.onTap.add(this.jump,this);
 	this.pipes = game.add.group(); 
-	this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
+	this.timer = game.time.events.loop(1750, this.addRowOfPipes, this);
 	this.score = -4;
 	this.labelScore = game.add.text(20, 20, "0", 
     { font: "30px Arial", fill: "#ffffff" }); 
@@ -84,14 +84,15 @@ addOnePipe: function(x, y) {
 }, 						// the score is kept here, need to put it in db somehow
 addRowOfPipes: function() {
     var hole = Math.floor(Math.random() * 11) + 1;
-	this.score += 1;
-	if(this.score >= 0) {
-		this.labelScore.text = this.score; 
-	}
 	
     for (var i = 0; i < 15; i++)
         if (i != hole && i != hole + 1 && i != hole + 2) 
-            this.addOnePipe(1200, i * 60 + 10); 
+            this.addOnePipe(1200, i * 60); 
+			this.score += 1;
+
+	if(this.score >= 0) {
+		this.labelScore.text = this.score; 
+	}
 			
 	
 	//var hole2 = Math.floor(Math.random() * 11) + 1;
