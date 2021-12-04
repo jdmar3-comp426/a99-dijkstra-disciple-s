@@ -19,8 +19,8 @@ Other steps that you will need to take after you have cloned this repository:
 
 ## Team Roles:
 
-Front-end: Maik Ruckauf, Lidia Mohammed, Jordan Aasman
-Back-end: Chetan Gongidi, Derya Kilic
+Front-end: Maik Ruckauf, Lidia Mohammed
+Back-end: Chetan Gongidi, Derya Kilic, Jordan Aasman
 
 ## Check in with instructional staff
 
