@@ -15,7 +15,6 @@ if (row === undefined) {
 // Set a const that will contain your SQL commands to initialize the database.
     const sqlInit = `
     CREATE TABLE userinfo (
-        CREATE TABLE userinfo ( 
             id INTEGER PRIMARY KEY, 
             email TEXT, 
             pass TEXT, 

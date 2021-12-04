@@ -57,7 +57,7 @@ app.post('/app/login', function(request, response) {
 	var email = request.body.email;
 	var pass = request.body.pass;
 	if (username && password) {
-		connection.query('SELECT * FROM accounts WHERE eamil = ? AND pass = ?', [email, pass], function(error, results, fields) {
+		connection.query('SELECT * FROM accounts WHERE email = ? AND pass = ?', [email, pass], function(error, results, fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
 				request.session.username = username;
@@ -83,14 +83,14 @@ app.get("/app/", (req, res, next) => {
 
 // EXAMPLE CODE: var data = {user: req.body.user, pass: req.body.pass ? md5(req.body.pass) : null}
 // CREATE a new user (HTTP method POST) at endpoint /app/new/
-app.post("/app/new/user", upload.none(), (req, res, next) => {
+app.post("/app/new/user", upload.none(), (req, res) => {
     var data = {
         email: req.body.email,
         pass: req.body.pass ? md5(req.body.pass) : null
     }
     
     const stmt = db.prepare("INSERT INTO userinfo(email, pass) VALUES (?, ?)");
-    const info = stmt.run(data.pass, data.email);
+    const info = stmt.run(data.email, data.pass);
     
     res.json({ "message": info.changes + " record created: ID " + info.lastInsertRowid + " (201)" });
     res.status(201);

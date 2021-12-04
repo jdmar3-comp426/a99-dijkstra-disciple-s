@@ -2,7 +2,7 @@ window.addEventListener("load", function () {
     function sendData() {
         // get data from form element
         const sendRequest = new XMLHttpRequest();
-        const signupInfo = new FormData(form);
+        const signupInfo = new URLSearchParams(new FormData(form));
 
         let pass = form.elements['pass']
         let email = form.elements['email']
@@ -15,9 +15,11 @@ window.addEventListener("load", function () {
         sendRequest.addEventListener("load", function (event) {
             alert("Account successfully created");
             window.location.replace("http://localhost:3000/login.html");
+            
         });
-        sendRequest.open("POST", "http://localhost:5000/app/new");
+        sendRequest.open("POST", "http://localhost:5000/app/new/user");
         sendRequest.send(signupInfo);
+        
         
         // open endpoint and send data
         
