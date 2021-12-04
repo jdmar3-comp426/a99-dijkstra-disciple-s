@@ -89,9 +89,10 @@ app.post("/app/new/user", (req, res) => {
     var data = {
         email: req.body.email,
         pass: req.body.pass ? md5(req.body.pass) : null,
+		score: req.body.score,
     }
     
-    const stmt = db.prepare("INSERT INTO userinfo(email, pass, logged) VALUES (?, ?, 0)");
+    const stmt = db.prepare("INSERT INTO userinfo(email, pass, logged, score) VALUES (?, ?, 0, 0)");
     const info = stmt.run(data.email, data.pass);
     
     res.status(201).json({ "message": info.changes + " record created: ID " + info.lastInsertRowid + " (201)" });
@@ -101,6 +102,21 @@ app.post("/app/new/user", (req, res) => {
 app.get("/app/users/", (req, res) => {	
 	const stmt = db.prepare("SELECT * FROM userinfo").all();
 	res.status(200).json(stmt);
+});
+
+app.patch("/app/update/user/:score", upload.none(), (req, res) => {
+
+    var data = {
+        email: req.body.email,
+        pass: req.body.pass ? md5(req.body.pass) : null,
+        score: req.body.score
+    }
+
+    const stmt = db.prepare("UPDATE userinfo SET score = COALESCE(?, score) WHERE id = ?");
+    const info = stmt.run( data.score, req.params.id);
+
+    res.json({ "message": info.changes + " record updated: score " + data.score + " (200)" });
+    res.status(200);
 });
 
 // READ a single user (HTTP method GET) at endpoint /app/user/:user
