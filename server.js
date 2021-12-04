@@ -91,7 +91,7 @@ app.post("/app/new/user", (req, res) => {
         pass: req.body.pass ? md5(req.body.pass) : null,
     }
     
-    const stmt = db.prepare("INSERT INTO userinfo(email, pass, logged) VALUES (?, ?, 0)");
+    const stmt = db.prepare("INSERT INTO userinfo(email, pass, logged, score) VALUES (?, ?, 0, 0)");
     const info = stmt.run(data.email, data.pass);
     
     res.status(201).json({ "message": info.changes + " record created: ID " + info.lastInsertRowid + " (201)" });
