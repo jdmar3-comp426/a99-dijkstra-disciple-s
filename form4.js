@@ -2,6 +2,7 @@ window.addEventListener("load", function () {                   // this form is 
     function sendData() {
         // get data from form element
         const sendRequest = new XMLHttpRequest();
+        const signupInfo = new URLSearchParams(new FormData(form));
 
         // error handling
         sendRequest.addEventListener("error", function (event) {
@@ -13,7 +14,7 @@ window.addEventListener("load", function () {                   // this form is 
             alert("Account successfully updated");
         });
         sendRequest.open("PATCH", "http://localhost:5000/app/update/user/1");
-        sendRequest.send();
+        sendRequest.send(signupInfo);
         
         // open endpoint and send data
         
@@ -28,18 +29,3 @@ window.addEventListener("load", function () {                   // this form is 
         sendData();
     });
 });
-
-const form = document.getElementById('form')
-
-form.addEventListener('submit', submitForm)
-
-function submitForm(e) {
-    e.preventDefault()
-    let pass = form.elements['pass']
-    let email = form.elements['email']
-    const sendRequest = new XMLHttpRequest();
-    sendRequest.open("DELETE", "http://localhost:5000/app/delete/logged/1");
-    sendRequest.send();
-    
-    
-}

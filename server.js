@@ -114,7 +114,7 @@ app.patch("/app/update/user/:logged", (req, res) => {
 		email: req.body.email,
 		pass: req.body.pass ? md5(req.body.pass): null,
 	}
-	const stmt = db.prepare("UPDATE userinfo SET email = COALESCE(?,email), pass = COALESCE(?,pass), WHERE logged = ?");
+	const stmt = db.prepare("UPDATE userinfo SET email = COALESCE(?,email), pass = COALESCE(?,pass) WHERE logged = ?");
 	const info = stmt.run(data.email, data.pass, req.params.logged);
 	res.status(200).json({"message":info.changes +" record updated: ID " + data.email + " (200)"});
 });
@@ -168,7 +168,7 @@ app.delete("/app/delete/logged/:logged", (req, res) => {
 	res.status(200).json({"message":stmt.changes +" record deleted: ID " + req.body.email + " (200)"});
 });
 
-// Default response for any other request
+// Default response for any other request																								****************
 app.use(function (req, res) {
     res.json({ "message": "Endpoint not found. (404)" });
     res.status(404);
