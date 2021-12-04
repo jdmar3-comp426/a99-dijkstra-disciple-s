@@ -53,14 +53,16 @@ app.post('/logout', (req, res) => {
 	response.send('Logged out succesfully');
 });
 
-app.post('/app/login', function(request, response) {
+
+
+app.post('/login', function(request, response) {
 	var email = request.body.email;
 	var pass = request.body.pass;
-	if (username && password) {
-		connection.query('SELECT * FROM accounts WHERE eamil = ? AND pass = ?', [email, pass], function(error, results, fields) {
+	if (email && pass) {
+		connection.query('SELECT * FROM accounts WHERE email = ? AND pass = ?', [email, pass], function(error, results, fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
-				request.session.username = username;
+				request.session.email = email;
 				response.redirect('/home');
 			} else {
 				response.send('Incorrect Username and/or Password!');
@@ -82,21 +84,56 @@ app.get("/app/", (req, res, next) => {
 // Define other CRUD API endpoints using express.js and better-sqlite3
 
 // EXAMPLE CODE: var data = {user: req.body.user, pass: req.body.pass ? md5(req.body.pass) : null}
-// CREATE a new user (HTTP method POST) at endpoint /app/new/
-app.post("/app/new/user", upload.none(), (req, res, next) => {
+// CREATE a new user (HTTP method POST) at endpoint /app/new/																			*********************
+app.post("/app/new/user", (req, res) => {
     var data = {
         email: req.body.email,
-        pass: req.body.pass ? md5(req.body.pass) : null
+        pass: req.body.pass ? md5(req.body.pass) : null,
     }
     
-    const stmt = db.prepare("INSERT INTO userinfo(email, pass) VALUES (?, ?)");
-    const info = stmt.run(data.pass, data.email);
+    const stmt = db.prepare("INSERT INTO userinfo(email, pass, logged) VALUES (?, ?, 0)");
+    const info = stmt.run(data.email, data.pass);
     
-    res.json({ "message": info.changes + " record created: ID " + info.lastInsertRowid + " (201)" });
-    res.status(201);
+    res.status(201).json({ "message": info.changes + " record created: ID " + info.lastInsertRowid + " (201)" });
 })
 
+// READ a list of all users (HTTP method GET) at endpoint /app/users/
+app.get("/app/users/", (req, res) => {	
+	const stmt = db.prepare("SELECT * FROM userinfo").all();
+	res.status(200).json(stmt);
+});
 
+// READ a single user (HTTP method GET) at endpoint /app/user/:user
+app.get("/app/user/:logged", (req, res) => {	
+	const stmt = db.prepare("SELECT * FROM userinfo WHERE logged = ?").get(req.params.logged);
+	res.status(200).json(stmt);
+});
+
+app.patch("/app/update/user/:logged", (req, res) => {	
+	var data = {
+		email: req.body.email,
+		pass: req.body.pass ? md5(req.body.pass): null,
+	}
+	const stmt = db.prepare("UPDATE userinfo SET email = COALESCE(?,email), pass = COALESCE(?,pass), WHERE logged = ?");
+	const info = stmt.run(data.email, data.pass, req.params.logged);
+	res.status(200).json({"message":info.changes +" record updated: ID " + data.email + " (200)"});
+});
+
+// UPDATE a single user to be logged in (HTTP method PATCH) at endpoint /app/update/user/:user/password/:password						**************************************
+app.patch("/app/update/user/logged/:logged", (req, res) => {	
+	const stmt = db.prepare("UPDATE userinfo SET logged = COALESCE(?, logged) WHERE email = ? AND pass = ?");
+	const info = stmt.run(req.params.logged, req.body.email, md5(req.body.pass));
+	res.status(200).json({"message":info.changes +" record updated: ID " + req.body.email + " (200)"});
+});
+
+
+// UPDATE a single user to be logged out (HTTP method PATCH) at endpoint /app/update/user/:user/password/:password						TODO ************* LOGOUT
+//might also need to add an update score portion
+app.patch("/app/update/user/logoff/:logged", (req, res) => {	
+	const stmt = db.prepare("UPDATE userinfo SET logged = COALESCE(0, logged) WHERE logged = ?");
+	const info = stmt.run(req.params.logged);
+	res.status(200).json({"message":info.changes +" record updated: ID " + req.body.email + " (200)"});
+});
 
 // READ a list of all users (HTTP method GET) at endpoint /app/users/
 app.get("/app/users", (req, res) => {
@@ -125,12 +162,11 @@ app.patch("/app/update/user/:id", upload.none(), (req, res) => {
     res.status(200);
 })
 
-// DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id
-app.delete("/app/delete/user/:id", (req, res) => {
-    const stmt = db.prepare("DELETE FROM userinfo WHERE id = ?").run(req.params.id);
-    res.json({ "message": stmt.changes + " record deleted: ID " + req.params.id + " (200)" });
-    res.status(200);
-})
+// DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id															**************** 
+app.delete("/app/delete/logged/:logged", (req, res) => {	
+	const stmt = db.prepare("DELETE FROM userinfo WHERE logged = ?").run(req.params.logged);
+	res.status(200).json({"message":stmt.changes +" record deleted: ID " + req.body.email + " (200)"});
+});
 
 // Default response for any other request
 app.use(function (req, res) {

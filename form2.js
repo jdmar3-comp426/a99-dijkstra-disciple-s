@@ -1,35 +1,20 @@
-window.addEventListener("load", function () {
-    function sendData() {
-        // get data from form element
-        const sendRequest = new XMLHttpRequest();
-        const loginInfo = new FormData(form);
-
-        // error handling
-        sendRequest.addEventListener("error", function (event) {
-            alert("Submission unsuccessful, please check your input and try again");
+        // post to currentuser database to log the current users score
+    window.addEventListener("load", function(){                             // this form is used to login
+        function sendData() {   
+            const sendRequest = new XMLHttpRequest();
+            const signupInfo = new URLSearchParams(new FormData(form));
+            sendRequest.addEventListener("error", function (event){
+                alert('Log In unsuccessful! Please try again.');
+            });
+            sendRequest.addEventListener("load", function (event) {
+                alert('You are logged in!!!');
+            });
+            sendRequest.open("PATCH", "http://localhost:5000/app/update/user/logged/1" );
+            sendRequest.send( signupInfo );
+        }
+        const form = document.getElementById("login-form");
+        form.addEventListener("submit", function ( event ){
+            event.preventDefault();
+            sendData();
         });
-
-        // success message
-        sendRequest.addEventListener("load", function (event) {
-            alert("Account successfully loggedin");
-            //open endpoint and send data
-            window.location.replace("http://localhost:3000/game.html");
-        });
-
-        sendRequest.open("POST", "http://localhost:5000/app/login");
-        sendRequest.send(loginInfo);
-
-        
-       
-        
-    }
-
-    // define location of form to get data from
-    const form = document.getElementById("signupForm");
-
-    // listener that calls send data function
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        sendData();
     });
-});

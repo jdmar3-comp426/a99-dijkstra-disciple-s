@@ -1,30 +1,26 @@
-window.addEventListener("load", function () {                   // this form is used when registering accounts
+window.addEventListener("load", function () {                   // this form is used when deleting accounts
     function sendData() {
         // get data from form element
         const sendRequest = new XMLHttpRequest();
-        const signupInfo = new URLSearchParams(new FormData(form));
 
-        let pass = form.elements['pass']
-        let email = form.elements['email']
         // error handling
         sendRequest.addEventListener("error", function (event) {
-            alert("Submission unsuccessful, please check your input and try again");
+            alert("Delete unsuccessful, please check your input and try again");
         });
 
         // success message
         sendRequest.addEventListener("load", function (event) {
-            alert("Account successfully created");
-            window.location.replace("http://localhost:3000/login.html");
+            alert("Account successfully deleted");
         });
-        sendRequest.open("POST", "http://localhost:5000/app/new/user");
-        sendRequest.send(signupInfo);
+        sendRequest.open("DELETE", "http://localhost:5000/app/delete/logged/1");
+        sendRequest.send();
         
         // open endpoint and send data
         
     }
 
     // define location of form to get data from
-    const form = document.getElementById("signupForm");
+    const form = document.getElementById("delete-form");
 
     // listener that calls send data function
     form.addEventListener("submit", function (event) {
@@ -42,9 +38,8 @@ function submitForm(e) {
     let pass = form.elements['pass']
     let email = form.elements['email']
     const sendRequest = new XMLHttpRequest();
-    const signupInfo = new FormData(form);
-    sendRequest.open("POST", "http://localhost:5000/app/new/user");
-    sendRequest.send(signupInfo);
+    sendRequest.open("DELETE", "http://localhost:5000/app/delete/logged/1");
+    sendRequest.send();
     
     
 }
