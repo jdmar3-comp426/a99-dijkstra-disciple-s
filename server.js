@@ -75,7 +75,7 @@ app.post('/login', function(request, response) {
 	}
 });
 
-// READ (HTTP method GET) at root endpoint /app/
+// READ (HTTP method GET) at root endpoint /app/																						**************************************
 app.get("/app/", (req, res, next) => {
     res.json({ "message": "Your API works! (200)" });
     res.status(200);
@@ -84,7 +84,7 @@ app.get("/app/", (req, res, next) => {
 // Define other CRUD API endpoints using express.js and better-sqlite3
 
 // EXAMPLE CODE: var data = {user: req.body.user, pass: req.body.pass ? md5(req.body.pass) : null}
-// CREATE a new user (HTTP method POST) at endpoint /app/new/																			*********************
+// CREATE a new user (HTTP method POST) at endpoint /app/new/																			**************************************
 app.post("/app/new/user", (req, res) => {
     var data = {
         email: req.body.email,
@@ -98,7 +98,7 @@ app.post("/app/new/user", (req, res) => {
     res.status(201).json({ "message": info.changes + " record created: ID " + info.lastInsertRowid + " (201)" });
 })
 
-// READ a list of all users (HTTP method GET) at endpoint /app/users/
+// READ a list of all users (HTTP method GET) at endpoint /app/users/																	**************************************
 app.get("/app/users/", (req, res) => {	
 	const stmt = db.prepare("SELECT * FROM userinfo").all();
 	res.status(200).json(stmt);
@@ -143,7 +143,7 @@ app.patch("/app/update/user/logged/:logged", (req, res) => {
 });
 
 
-// UPDATE a single user to be logged out (HTTP method PATCH) at endpoint /app/update/user/:user/password/:password						TODO ************* LOGOUT
+// UPDATE a single user to be logged out (HTTP method PATCH) at endpoint /app/update/user/:user/password/:password						**************************************
 //might also need to add an update score portion
 app.patch("/app/update/user/logoff/:logged", (req, res) => {	
 	const stmt = db.prepare("UPDATE userinfo SET logged = COALESCE(0, logged) WHERE logged = ?");
@@ -178,13 +178,13 @@ app.patch("/app/update/user/:id", upload.none(), (req, res) => {
     res.status(200);
 })
 
-// DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id															**************** 
+// DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id															************************************** 
 app.delete("/app/delete/logged/:logged", (req, res) => {	
 	const stmt = db.prepare("DELETE FROM userinfo WHERE logged = ?").run(req.params.logged);
 	res.status(200).json({"message":stmt.changes +" record deleted: ID " + req.body.email + " (200)"});
 });
 
-// Default response for any other request																								****************
+// Default response for any other request																								**************************************
 app.use(function (req, res) {
     res.json({ "message": "Endpoint not found. (404)" });
     res.status(404);
