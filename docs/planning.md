@@ -44,3 +44,6 @@
     - Database Lead: Maik Ruckauf
     - Back-end Lead: Chetan Gongidi, Derya Kilic
     - Documentation Lead: Jordan Aasman
+    
+## How to run
+    - Execute 'npm run start' in your console and enjoy!
