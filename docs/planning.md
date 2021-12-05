@@ -42,8 +42,9 @@
 ## Roles
     - Front-end Lead: Lidia Mohammed 
     - Database Lead: Maik Ruckauf
-    - Back-end Lead: Chetan Gongidi, Derya Kilic
+    - Back-end Lead: Chetan Gongidi
     - Documentation Lead: Jordan Aasman
+    - Design Lead: Derya Kilic
     
 ## How to run
     - Execute 'npm run start' in your console and enjoy!
