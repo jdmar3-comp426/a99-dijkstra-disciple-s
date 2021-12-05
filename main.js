@@ -78,8 +78,8 @@ var mainState = {
 		this.labelGameOver = game.add.text(500, 300, this.gameOverScore,
 			{ font: "30px Arial", fill: "#ffffff" }); 
 
-			this.labelGameOver = game.add.text(500, 350, this.gameOverHScore,
-				{ font: "30px Arial", fill: "#ffffff" }); 
+		this.labelGameOver = game.add.text(500, 350, this.gameOverHScore,
+			{ font: "30px Arial", fill: "#ffffff" }); 
 
         this.timer = game.time.events.add(2000, this.restartGame, this);
     },
