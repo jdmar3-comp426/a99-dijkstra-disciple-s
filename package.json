@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/jdmar3-comp426/a99-dijkstra-disciple-s/issues"
   },
-  "homepage": "https://github.com/jdmar3-comp426/a99-dijkstra-disciple-s#readme"
+  "homepage": "https://github.com/jdmar3-comp426/a99-dijkstra-disciple-s#readme",
+  "directories": {
+    "doc": "docs"
+  }
 }
