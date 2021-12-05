@@ -10,4 +10,5 @@
       - login to their account
       - delete their account
       - update their account
+      - logout from their account
       
