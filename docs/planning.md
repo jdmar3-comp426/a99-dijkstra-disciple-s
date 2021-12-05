@@ -40,7 +40,7 @@
         
         
 ## Roles
-    - Front-end: Lidia Mohammed 
+    - Front-end Lead: Lidia Mohammed 
     - Database Lead: Maik Ruckauf
-    - Back-end: Chetan Gongidi, Derya Kilic
+    - Back-end Lead: Chetan Gongidi, Derya Kilic
     - Documentation Lead: Jordan Aasman
