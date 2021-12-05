@@ -28,17 +28,16 @@ var mainState = {
 	game.input.onTap.add(this.jump,this);
 	this.pipes = game.add.group(); 
 	this.timer = game.time.events.loop(1750, this.addRowOfPipes, this);
-	this.score = -3;
+	this.score = -4;
 	this.labelScore = game.add.text(0, 30, "Current Score: " + "0", 
-    { font: "30px Arial", fill: "#ffffff" }); 
+    { font: "30px Arial", fill: "#00b140" }); 
 	this.bird.anchor.setTo(-0.2, 0.5);
 	this.jumpSound = game.add.audio('jump');
 	this.themeSound = game.add.audio('theme');
 	this.themeSound.play();
-	this.gameOverScore = "Your Highest score is: " + highestScore
-
+	this.gameOverScore = "Your Highest: " + highestScore
 	this.label = game.add.text(0, 0, this.gameOverScore,
-		{ font: "30px Arial", fill: "#ffffff" }); 
+		{ font: "30px Arial", fill: "#00b140" }); 
     },
 
     update: function() {
@@ -68,12 +67,21 @@ var mainState = {
 
     gameOverScreen: function() {
         this.gameOverText = "G A M E   O V E R";
+		this.gameOverScore = this.score <= 0 ? "Your Score was: 0": "Your Score is: " + this.score;
+		this.gameOverHScore = "Your Highest Score is: " + highestScore;
+
 		if(this.score >= highestScore){highestScore=this.score}
 
         this.labelGameOver = game.add.text(500, 250, this.gameOverText,
             { font: "30px Arial", fill: "#ffffff" }); 
+		
+		this.labelGameOver = game.add.text(500, 300, this.gameOverScore,
+			{ font: "30px Arial", fill: "#ffffff" }); 
 
-        this.timer = game.time.events.add(1000, this.restartGame, this);
+		this.labelGameOver = game.add.text(500, 350, this.gameOverHScore,
+			{ font: "30px Arial", fill: "#ffffff" }); 
+
+        this.timer = game.time.events.add(2000, this.restartGame, this);
     },
 
 addOnePipe: function(x, y) {
