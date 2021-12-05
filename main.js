@@ -1,3 +1,5 @@
+var highestScore = 0;
+
 var mainState = {
     preload: function() { 
 	//game.load.image('bird', 'assets/bird.png'); 
@@ -26,13 +28,17 @@ var mainState = {
 	game.input.onTap.add(this.jump,this);
 	this.pipes = game.add.group(); 
 	this.timer = game.time.events.loop(1750, this.addRowOfPipes, this);
-	this.score = -4;
-	this.labelScore = game.add.text(20, 20, "0", 
+	this.score = -3;
+	this.labelScore = game.add.text(0, 30, "Current Score: " + "0", 
     { font: "30px Arial", fill: "#ffffff" }); 
 	this.bird.anchor.setTo(-0.2, 0.5);
 	this.jumpSound = game.add.audio('jump');
 	this.themeSound = game.add.audio('theme');
 	this.themeSound.play();
+	this.gameOverScore = "Your Highest score is: " + highestScore
+
+	this.label = game.add.text(0, 0, this.gameOverScore,
+		{ font: "30px Arial", fill: "#ffffff" }); 
     },
 
     update: function() {
@@ -54,6 +60,7 @@ var mainState = {
 	this.jumpSound.play();
 },
 
+
 	restartGame: function() {
 		game.state.start('main');
 		this.themeSound.pause();
@@ -61,6 +68,8 @@ var mainState = {
 
     gameOverScreen: function() {
         this.gameOverText = "G A M E   O V E R";
+		if(this.score >= highestScore){highestScore=this.score}
+
         this.labelGameOver = game.add.text(500, 250, this.gameOverText,
             { font: "30px Arial", fill: "#ffffff" }); 
 
@@ -91,7 +100,7 @@ addRowOfPipes: function() {
 			this.score += 1;
 
 	if(this.score >= 0) {
-		this.labelScore.text = this.score; 
+		this.labelScore.text = "Current Score: " + this.score; 
 	}
 			
 	
