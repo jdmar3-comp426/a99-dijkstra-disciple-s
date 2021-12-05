@@ -5,7 +5,7 @@
         - We choose FlappyBird simple using only space bar or with a left click on the mouse
         - Instead of a bird we used UNC spirit in our game
         
-### Understanding each file:
+## Understanding each file:
 
     Running the game
         - main.js = handles the functionality of the game: pipe generation, sprites, images, etc.
