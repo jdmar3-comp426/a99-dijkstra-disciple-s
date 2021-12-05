@@ -14,7 +14,7 @@ with the backbone of our API constructed using express.js. We also used better-s
 pertaining to our database.
 
 
-##Endpoints
+## Endpoints
 
 
 **/app/**
