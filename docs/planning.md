@@ -3,7 +3,7 @@
         - We wanted te project to reflect a part of UNC
         - We wanted it to be simple for everyone to understand and play
         - We choose FlappyBird simple using only space bar or with a left click on the mouse
-        - Instead of a bird we wanted used UNC spirit in our game
+        - Instead of a bird we used UNC spirit in our game
         
 ### Understanding each file:
 
