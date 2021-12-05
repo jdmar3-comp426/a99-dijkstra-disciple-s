@@ -1,13 +1,13 @@
 # API Documentation
 
-Introduction
+## Introduction
 
 Our API and its endpoints are included in the server.js file. We are using it to communicate between
 our game and the user database(user.db) defined in database.js, which includes only one table with 
 variables related to user information. We decided to create ten endpoints and one default response 
 for any other request, which outputs a 404 response error.
 
-Dependencies
+## Dependencies
 
 We decided to include and use npm modules such as md5 for password encryption and cors as middleware,
 with the backbone of our API constructed using express.js. We also used better-sqlite3 for everything
