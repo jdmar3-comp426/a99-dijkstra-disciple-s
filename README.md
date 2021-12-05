@@ -5,9 +5,24 @@ Hey! Welcome to our project repository! If you're here, it's obiviously because 
 
 ## How to Play:
 
+1) Create an account on the 'Register' screen
+2) Login to your account on the 'Login' page
+3) 'Play the Game' - 'space' or 'left-click' to JUMP... travers through the pipes to earn a score... 
+4) Try and beat your high score!
+5) Update account information on the 'Update' page
+6) Delete account on the 'Delete' page OR logout of your account on the 'Logout page
+
 ## Team Roles:
 
 Front-end: Maik Ruckauf, Lidia Mohammed
 Back-end: Chetan Gongidi, Derya Kilic, Jordan Aasman
 
 ## Dependencies:
+
+better-sqlite3
+browser-sync
+concurrently
+cors
+express
+md5
+multer
