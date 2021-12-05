@@ -14,107 +14,107 @@ with the backbone of our API constructed using express.js. We also used better-s
 pertaining to our database.
 
 
-Endpoints
+##Endpoints
 
 
 **/app/**
 
 
--HTTP method GET
+- HTTP method GET
 
--Makes sure that our API works as intended.
+- Makes sure that our API works as intended.
 
--Reads at root endpoint.
+- Reads at root endpoint.
 
 
 **/app/new/user**
 
 
--HTTP method POST
+- HTTP method POST
 
--CREATE a new user at endpoint /app/new
+- CREATE a new user at endpoint /app/new
 
--The user information that is set into the database depends in the URLSearchParams passed into it.
+- The user information that is set into the database depends in the URLSearchParams passed into it.
 
--Uses md5 to encrypt the password passed as parameter for a safe storage into the database.
+- Uses md5 to encrypt the password passed as parameter for a safe storage into the database.
 
--Used for registering new users into the game.
+- Used for registering new users into the game.
 
 
 **/app/update/user/score/:score**
 
--HTTP method PATCH
+- HTTP method PATCH
 
--Used for updating your game score information 
+- Used for updating your game score information 
 
 
 **/app/update/user/:logged**
 
--HTTP method PATCH
+- HTTP method PATCH
 
--Used for updating your game information such as email or password
+- Used for updating your game information such as email or password
 
 
 
 **/app/update/user/logged/:logged**
 
--HTTP method PATCH
+- HTTP method PATCH
 
--Used for loggin on to your game account
+- Used for loggin on to your game account
 
 
 
 **/app/update/user/logoff/:logged**
 
--HTTP method PATCH
+- HTTP method PATCH
 
--Used for loggin off of your game account
+- Used for loggin off of your game account
 
 
 
 **/app/users**
 
 
--HTTP method GET
+- HTTP method GET
 
--READ a list of all users.
+- READ a list of all users.
 
--Used for retrieving all users so that we can scan them to find a user's particular id.
+- Used for retrieving all users so that we can scan them to find a user's particular id.
 
--Used a lot for debugging/making sure our database was working as intended.
+- Used a lot for debugging/making sure our database was working as intended.
 
 
 
 **/app/user/:id**
 
 
--HTTP method GET
+- HTTP method GET
 
--Retrieves user data depending on the ID(database's primary key) supplied to the endpoint.
+- Retrieves user data depending on the ID(database's primary key) supplied to the endpoint.
 
--Used for retrieving user game progress from the database.
+- Used for retrieving user game progress from the database.
 
 
 **/app/update/user/:id**
 
 
--HTTP method PATCH
+- HTTP method PATCH
 
--UPDATE data for a single user dependent on the ID supplied to the endpoint.
+- UPDATE data for a single user dependent on the ID supplied to the endpoint.
 
--Uses md5 to encrypt the password passed as parameter for a safe storage into the database.
+- Uses md5 to encrypt the password passed as parameter for a safe storage into the database.
 
--COALESCE's input so that it can be used for setting as many variables the user wants without 
+- COALESCE's input so that it can be used for setting as many variables the user wants without 
 altering those that the user does not want to update.
 
--Used for saving user game progress into the database.
+- Used for saving user game progress into the database.
 
 
 **/app/delete/logged/:logged**
 
 
--HTTP method DELETE
+- HTTP method DELETE
 
--DELETE a single user dependent on the if they are logged in right or not supplied to the endpoint.
+- DELETE a single user dependent on the if they are logged in right or not supplied to the endpoint.
 
--Used when a user wants to delete their account.
+- Used when a user wants to delete their account.
