@@ -1,6 +1,6 @@
 At some point we need to create a "plan"
 
-Understanding each file:
+### Understanding each file:
 
     Running the game
         - main.js = handles the functionality of the game: pipe generation, sprites, images, etc.
