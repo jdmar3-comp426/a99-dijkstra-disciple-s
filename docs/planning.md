@@ -1,6 +1,11 @@
-At some point we need to create a "plan"
-
-### Understanding each file:
+## Brainstorming
+        - Discussed our ides of games where we can use databases
+        - We wanted te project to reflect a part of UNC
+        - We wanted it to be simple for everyone to understand and play
+        - We choose FlappyBird simple using only space bar or with a left click on the mouse
+        - Instead of a bird we used UNC spirit in our game
+        
+## Understanding each file:
 
     Running the game
         - main.js = handles the functionality of the game: pipe generation, sprites, images, etc.
@@ -37,3 +42,15 @@ At some point we need to create a "plan"
 
     Other
         - package.json = defines all dependencies used and lists objects
+        
+        
+        
+## Roles
+    - Front-end Lead: Lidia Mohammed 
+    - Database Lead: Maik Ruckauf
+    - Back-end Lead: Chetan Gongidi
+    - Documentation Lead: Jordan Aasman
+    - Design Lead: Derya Kilic
+    
+## How to run
+    - Execute 'npm run start' in your console and enjoy!
