@@ -36,3 +36,11 @@
 
     Other
         - package.json = defines all dependencies used and lists objects
+        
+        
+        
+## Roles
+    - Front-end: Lidia Mohammed 
+    - Database Lead: Maik Ruckauf
+    - Back-end: Chetan Gongidi, Derya Kilic
+    - Documentation Lead: Jordan Aasman
