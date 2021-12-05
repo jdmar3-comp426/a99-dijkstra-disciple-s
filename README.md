@@ -12,6 +12,9 @@ Hey! Welcome to our project repository! If you're here, it's obiviously because 
 5) Update account information on the 'Update' page
 6) Delete account on the 'Delete' page OR logout of your account on the 'Logout page
 
+## Demo video on Youtube:
+https://www.youtube.com/watch?v=c14id33URd0
+
 ## Team Roles:
 
 Front-end: Maik Ruckauf, Lidia Mohammed
