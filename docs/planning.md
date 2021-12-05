@@ -1,4 +1,3 @@
-At some point we need to create a "plan"
 
 ### Understanding each file:
 
