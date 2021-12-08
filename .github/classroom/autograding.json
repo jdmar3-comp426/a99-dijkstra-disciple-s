@@ -33,7 +33,7 @@
     {
       "name": "Front End Flag",
       "setup": "SHELL=/bin/bash",
-      "run": "FE=$(ls -R | grep 'front.*end\\|index.js\\|main.js' | wc -l) && if [ \"$FE\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "run": "FE=$(ls -R | grep 'front.*end\\|index.html\\|index.js\\|main.js' | wc -l) && if [ \"$FE\" -ge \"1\" ]; then echo \"TRUE\"; fi",
       "input": "",
       "output": "TRUE",
       "comparison": "included",
