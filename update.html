@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+    
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="./loginStyle.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="form4.js"></script>
+  </head>
+  <body>
+    <div class="registerBox">
+        <h1 class="title">Update</h1>
+        <form class="formBox" action="" id="update-form" enctype="multipart/form-data" method="PATCH">
+            <label >Username</label>
+            <input name="email" class="loginInput" id="email" type="email" placeholder="Username"/>
+            <label>Password</label>
+            <input class="loginInput" id="pass" name="pass" type="password" placeholder="Password"/>
+            <button  class="input_btn" type="submit" value="Submit">Update</button>
+        </form>
+        <button class="input_btn" ><a href="index.html">Home</a></button>
+        <button class="input_btn" ><a href="/register.html">Register</a></button>
+        <button class="input_btn" ><a href="/login.html">Login</a></button>
+        <button id = "view" type="button" onclick="viewUser()"> View Account </button>
+        <p id = "getResult"></p>
+        <script>
+          //script runnign on view my info button
+        function viewUser() {
+          const getRequest = new XMLHttpRequest();
+          getRequest.onload = function() {
+            alert('I have retrieved your information!')
+          document.getElementById("getResult").innerHTML = this.responseText;
+          }
+          getRequest.open("GET", "http://localhost:5000/app/user/1");
+          getRequest.send();
+        }
+        </script>
+    </div>
+  </body>
+  </html>
