@@ -13,7 +13,7 @@
     {
       "name": "Walkthrough Flag",
       "setup": "SHELL=/bin/bash",
-      "run": "WT=$(grep \"youtu\\|mp4\\|mkv\\|vimeo\" README* | wc -l) && if [ \"$WT\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "run": "WT=$(grep \"youtu\\|mp4\\|mkv\\|vimeo\" README* */* | wc -l) && if [ \"$WT\" -ge \"1\" ]; then echo \"TRUE\"; fi",
       "input": "",
       "output": "TRUE",
       "comparison": "exact",
