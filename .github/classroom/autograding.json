@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Documentation Flag",
+      "setup": "SHELL=/bin/bash",
+      "run": "DOC=$(grep -riI \"docs\" | wc -l) && if [ \"$DOC\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "input": "",
+      "output": "TRUE",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 75
+    },
+    {
+      "name": "Walkthrough Flag",
+      "setup": "SHELL=/bin/bash",
+      "run": "WT=$(grep \"youtu\\|mp4\\|mkv\\|vimeo\" README.md | wc -l) && if [ \"$WT\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "input": "",
+      "output": "TRUE",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 75
+    },
+    {
+      "name": "Back End Flag",
+      "setup": "SHELL=/bin/bash",
+      "run": "BK=$(grep -riI \"server\\\\.js\\|main\\\\.js\" | wc -l) && if [ \"$BK\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "input": "",
+      "output": "TRUE",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 75
+    },
+    {
+      "name": "Front End Flag",
+      "setup": "SHELL=/bin/bash",
+      "run": "FE=$(grep -riI \"index\\\\.html\\|index\\\\.js\" | wc -l) && if [ \"$FE\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "input": "",
+      "output": "TRUE",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 75
+    }
+  ]
+}
