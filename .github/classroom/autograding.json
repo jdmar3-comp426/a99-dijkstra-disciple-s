@@ -23,7 +23,7 @@
     {
       "name": "Back End Flag",
       "setup": "SHELL=/bin/bash",
-      "run": "BK=$(ls -R | grep 'server\\.js\\|main\\.js' | wc -l) && if [ \"$BK\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "run": "BK=$(ls -R | grep 'server\\.js\\|main\\.js\\|index\\.js' | wc -l) && if [ \"$BK\" -ge \"1\" ]; then echo \"TRUE\"; fi",
       "input": "",
       "output": "TRUE",
       "comparison": "exact",
