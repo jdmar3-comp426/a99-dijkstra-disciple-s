@@ -3,7 +3,7 @@
     {
       "name": "Documentation Flag",
       "setup": "SHELL=/bin/bash",
-      "run": "DOC=$(grep -RiI \"docs\" | wc -l) && if [ \"$DOC\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "run": "DOC=$(ls -R | grep 'docs\\?' | wc -l) && if [ \"$DOC\" -ge \"1\" ]; then echo \"TRUE\"; fi",
       "input": "",
       "output": "TRUE",
       "comparison": "exact",
@@ -23,7 +23,7 @@
     {
       "name": "Back End Flag",
       "setup": "SHELL=/bin/bash",
-      "run": "BK=$(grep -RiI \"server\\\\.js\\|main\\\\.js\" | wc -l) && if [ \"$BK\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "run": "BK=$(ls -R | grep 'server\\.js\\|main\\.js' | wc -l) && if [ \"$BK\" -ge \"1\" ]; then echo \"TRUE\"; fi",
       "input": "",
       "output": "TRUE",
       "comparison": "exact",
@@ -33,7 +33,7 @@
     {
       "name": "Front End Flag",
       "setup": "SHELL=/bin/bash",
-      "run": "FE=$(grep -RiI \"index\\\\.html\\|index\\\\.js\" | wc -l) && if [ \"$FE\" -ge \"1\" ]; then echo \"TRUE\"; fi",
+      "run": "FE=$(ls -R | grep 'server\\.js\\|main\\.js' | wc -l) && if [ \"$FE\" -ge \"1\" ]; then echo \"TRUE\"; fi",
       "input": "",
       "output": "TRUE",
       "comparison": "exact",
